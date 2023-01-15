@@ -1,0 +1,55 @@
+This is BibTeX, Version 0.99d
+Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
+The top-level auxiliary file: Project_Proposal_322853334_209446640.aux
+Reallocating 'name_of_file' (item size: 1) to 6 items.
+The style file: plain.bst
+Reallocating 'name_of_file' (item size: 1) to 11 items.
+Database file #1: references.bib
+Warning--entry type for "1" isn't style-file defined
+--line 1 of file references.bib
+Warning--entry type for "2" isn't style-file defined
+--line 11 of file references.bib
+Warning--to sort, need author or key in 1
+Warning--to sort, need author or key in 2
+You've used 2 entries,
+            2118 wiz_defined-function locations,
+            499 strings with 4265 characters,
+and the built_in function-call counts, 316 in all, are:
+= -- 24
+> -- 2
+< -- 0
++ -- 2
+- -- 0
+* -- 12
+:= -- 37
+add.period$ -- 2
+call.type$ -- 2
+change.case$ -- 6
+chr.to.int$ -- 0
+cite$ -- 4
+duplicate$ -- 14
+empty$ -- 47
+format.name$ -- 0
+if$ -- 75
+int.to.chr$ -- 0
+int.to.str$ -- 2
+missing$ -- 0
+newline$ -- 9
+num.names$ -- 0
+pop$ -- 16
+preamble$ -- 1
+purify$ -- 4
+quote$ -- 0
+skip$ -- 20
+stack$ -- 0
+substring$ -- 10
+swap$ -- 2
+text.length$ -- 0
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 8
+warning$ -- 2
+while$ -- 0
+width$ -- 3
+write$ -- 12
+(There were 4 warnings)

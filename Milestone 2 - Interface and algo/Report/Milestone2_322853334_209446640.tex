@@ -1,0 +1,63 @@
+\documentclass[]{article}
+
+% packages
+\usepackage{amsmath, amsfonts}
+\usepackage{hyperref}
+\usepackage[margin=1.3in]{geometry}
+\usepackage{graphicx}
+\usepackage{float}
+
+%opening
+\title{\vspace{-2cm}Intelligent Interactive Systems - Final Project Milestone 2}
+\author{Matan Solomon 322853334 \\ Nitay Suissa 209446640}
+\date{Dec 2022}
+
+\begin{document}
+
+\maketitle
+\section{Project Summary}
+\subsection{The problem}
+The problem we aim to solve is that people sometimes find it hard to translate their feelings about what they want to eat, to actual recipe. They know they want, for example, something sweet, cold, and quick, but they need suggestions of relevant options.
+\subsection{Our solution}
+Our solution is a retrieval system that takes from the user the properties we believe she will be able to give, and retrieve relevant recipes. The intelligence and challenge are expressed in the translation between the 'intuitive', or even 'abstract' description of the user, to specific food.
+\subsection{Unique approach}
+In our approach, we would like to project recipes into semantic vector space by generating embeddings for the recipes. The challenge is to create embeddings that will be able to capture these abstract properties. We would like to achieve this by creating predictors for the abstract properties and enrich them using graph neural networks. 
+
+\section{Design principles}
+A prototype of our system is given in figure \ref{fig:interface-sketch}.\\
+When we designed our interface, we made sure to follow several key-principle to make it as friendly and novel as possible. First, we designed a light and clean interface with neutral colors and not too colorful. The idea is to create an aesthetic interface that represents the cleanliness of a processional kitchen. We made sure to make our interface simple, with clear distinction between the part that involves the user interaction to the part that presents the results. We did it to make sure our interface is user-friendly and quick to learn and use. \\
+\\
+As for Microsoft \href{https://www.microsoft.com/en-us/haxtoolkit/uploads/prod/2021/05/AI-Design-guidelines_041519.pdf}{AI Design guidlines}, we decided to make our system live, such that the results change every time the user changes the input. Furthermore, we added a button for retrieving other recipe for the inputted properties. These ideas increase the interactiveness, and support efficient correction (principle 9). We also designed a user personal zone, where her last queries and recipes are saved, so as the recipes she liked. By doing so, we can turn the user's zone to a recommendation system, where we can remember her recent interaction and learn from it (principles 12 and 13).
+\pagebreak
+\section{Interface instructions}
+The video demonstrating our interface can be found \href{https://technion.zoom.us/rec/share/PU1TB-U-57yZRVwj-nYYAOn9mz1jJn3S6KXnJIA6HyUzOYlgKXx_yGTjYEwseBtB.GnT92OwZw5YGS-gp}{here (link)}. \\
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.7\linewidth]{"../Interface sketch/Interface sketch"}
+	\caption[s]{Sketch of our interface}
+	\label{fig:interface-sketch}
+\end{figure}
+
+In figure \ref{fig:interface-sketch} we can see the main screen of our interactive interface. We divide our interface to 3 parts, which we will talk about in details in this section - the upper bar, the left retrieved recipes panel, and the right interaction panel.
+
+\subsection{The upper bar}
+Besides the product name, the upper bar contains 3 buttons that meant to enrich the user experience and make it quicker and easier to use.
+\begin{enumerate}
+	\item \textit{My zone} - links to the user's personal zone, in which she can view her liked recipes, and activity history. This zone can also support filing the recipes to create a personal cooking book. Further more, in future versions, we could also learn from her previous activities to make the retrieval more custom-made, by adding personal recommendations.
+	\item \textit{Tutorial} - presents the user with a quick tutorial about the system, to make her experience more easy and fluent.
+	\item \textit{About us} - displays a story about us and about the purpose of the system, to make her trust the system.
+\end{enumerate}
+
+\subsection{The retrieved recipes panel}
+In the left panel, the users can see the retrieved recipes. The panel is updating live while the user make her choices in the interaction panel, in order to make to experience more interactive. After a recipe is retrieved and presented, the user can like it to save it to her personal zone, or to ask the system for another recipe. 
+
+\subsection{The interaction panel}
+In the right interaction panel the user inputs her query. The user is asked to insert properties like the flavors of the food, the temperature, and other properties we believe she will be able to give. While doing so, the left panel presents the best match according to the properties entered so far. The panel also contains a question mark button, to suggests the user with additional help for the different properties.
+
+\section{Algorithmic approach}
+As mentioned above, our idea is to project recipes into a semantic vector space that aims to capture the abstract properties the user inputted. The dataset we will use is the \textit{Recipe1M+} dataset, presented in \cite{marin2019learning}. It contains over a million recipes extracted from the internet. At first, we are considering using predictors to associate each recipe with a basic embedding vector that captures the required properties. Then, we are planning to enrich these initial embeddings by propagating information between recipes we believe to be similar enough, using graph neural networks.\\
+Then, we will extract the best matching recipes by creating a feature vector for the combination of properties the user inputted, and then by taking the closest recipes in the vector space.
+
+\bibliographystyle{plain}
+\bibliography{references}
+\end{document}

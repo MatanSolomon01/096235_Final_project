@@ -1,0 +1,45 @@
+\documentclass[]{article}
+
+% packages
+\usepackage{amsmath, amsfonts}
+\usepackage[margin=1.3in]{geometry}
+
+%opening
+\title{\vspace{-2cm}Intelligent Interactive Systems - Final Project Proposal}
+\author{Matan Solomon 322853334 \\ Nitay Suissa 209446640}
+\date{Dec 2022}
+
+\begin{document}
+
+\maketitle
+\section{Problem and motivation}
+It's Wednesday, another long, exhausting workday, yet you can already smell the weekend you're so waiting for. You had a long day at work, and you finally home, ready to make dinner, take a shower and go to sleep.  Every day, when you arrive at home, busy and bothered with the daily stuff, you make yourself the same simple, quite boring dinner - probably an egg in some form, slices of bread and so on. Today, you want to make something different, interesting or special, to relieve the weekly boredom of your same daily dinner. You open a recipes book, and look for something interesting. You want something salty, baked but yet quick, oh, and you're out of eggs. Reviewing the long recipes book gave you nothing. If you only had an \textit{Intelligent Interactive System that you could intuitively tell it what you want and what you have, and it would retrieve the perfect thing for you...}
+
+\section{System objectives}
+The story above is the reality of millions of people around the world, that settle for the boring meal. The presented problem is that for an average person, it may be hard to guess, just by reading the recipe, what would the meal looks like, predicting the textures, flavors, and smells of the future dish. The technical nature of recipes makes it hard to know that this is what I want. On the other hand, people can express their wishes in some, maybe abstract manner. Imagine someone that goes to a restaurant and tells the chef "I want something comforting, cheesy and soft". The chef, a human on the one hand, and a 'field expert' on the other hand would know to suggest to the customer, for example, a creamed potato, but the customer by himself wouldn't necessarily know about this option. So, the objective of our system is to bridge the gap between human intuition, and what they feel they want to make, but do not necessarily know to point on exactly, to the technical nature of recipes, instead of the chef. In that manner, our system needs, on the one hand, to suggest an interface compatible with the human 'intuition' - an interactive interface built in a way that makes it easy for a human to express her wishes, and to intelligently connect this intuition to recipes - a technical sequence of ingredients and instructions.
+
+\section{Existing technology review}
+We found two existing technologies like the one we propose. First (\cite{1}) is a system that first identifies the user's ingredients using a photo given by him of them. Then after having the ingredients the system suggests to the user some recipes that consist of them. The second one (\cite{2}) is a system that identifies the ingredients of a meal by a photo of it as well, but instead of suggesting an existing recipe, the system generates a new recipe using the ingredients it identified. Both systems do not consider that the user does not always know which ingredients he wants to use and prefer that the system recommend ingredients according to the features he requested the dish to meet. The system that generates new recipes, in our opinion, uses a tool that is too heavy for a purpose that can be achieved even without it since for each set of ingredients there are probably already many recipes written and cooked by humans so in creating a recipe by a machine there is a risk taken in vain of creating an inedible recipe.
+
+\section{Approach}
+As we see the system currently, it evolves from two opposite sources that requires different approaches and meet in the middle. The first source in \textit{the human input}, and the second one is \textit{the recipes analysis}.
+\subsection{The human input}
+This side of the system is where our interface evolves. As we said above, our goal is to understand what are the "anchors" and constraints humans can provide when they describe their wish for a meal. That is, what are the features we can expect humans to be able to supply. For example, superficial and more necessary features may be the ingredients they have or the time of preparation they are willing to invest. Some other features may be the texture of the food, its basic flavors, or its common association (For example, comforting food). Those features are deeper, and it is not trivial that the users can supply them. Therefore, from this source, we start by understanding more about the relationship between feelings and the sense of taste, trying to come up with features that can capture reliably the users' wish, and yet concrete enough to focus on the proper recipe. To achieve that, we can start by asking people to tell us what they feel they want to eat, and to pay attention to their description - what are they focusing on? How do they characterize it? Coming up with those features, we can design an interface that would be easy to use, comfortable and interactive, to question users for those features.
+\subsection{The recipes analysis}
+This side of the system is where our algorithmics and AI evolve. We can think of the features from the previous source as defining a semantic space, where the axes are the features the users knew to provide. Here, the problem is to place specific recipes in this semantic space. We can consider it as creating an embedding for the recipes that capture or characterize the recipes with respect to the chosen features. Therefore, by defining the problem as generating embeddings, and considering that our input is basically text, we can address the rich literature in this field, and perhaps extract the embedding from a trained deep model, fine-tuned for our features.
+
+\section{Plan}
+Considering the approaches described above, our plan is as follows:
+\begin{enumerate}
+	\item Decide on a list of features as described above.
+	\item Filter out the features we find impossible to capture using our embedding approach, and perhaps find other fetures instead (or some huristics that can proxy the problematic features).
+	\item Design an initial interface.
+	\item Address the literature for recipes modeling.
+	\item Design our model's prototype
+	\item Implement our model
+	\item Evaluate it
+\end{enumerate}
+
+\bibliographystyle{plain}
+\bibliography{references}
+\end{document}
