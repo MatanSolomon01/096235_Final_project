@@ -1,6 +1,10 @@
 import json
+import pickle as pkl
 from copy import deepcopy
+from collections import Counter
 
+import matplotlib.pyplot as plt
+import numpy as np
 import pandas as pd
 
 
@@ -58,20 +62,49 @@ def create_data():
     dump_jsn(data, 'data/data.json')
 
 
-data = load_jsn('data/data.json')
-data2 = {k:v for k,v in data.items() if all(v['valid_2'])}
-def del_valid_2(d):
-    del d['valid_2']
-    return d
-data3 = {k:del_valid_2(v) for k,v in data2.items()}
-data4 = deepcopy(data3)
-for v in data4.values():
-    v.update(v['nutr_per_ing_1'])
-    del v['nutr_per_ing_1']
-data_df = pd.DataFrame.from_dict(data4, orient='index')
-data_df = data_df[['title_1', 'ingredients_1', 'ingredients_2', 'ingredients_3', 'instructions_1', 'instructions_3', 'energy', 'fat', 'protein', 'salt', 'saturates', 'sugars']]
-data_df.to_csv('data/data.csv')
-import pickle as pkl
-pkl.dump(data_df, open('data/data_df.pkl', 'wb'))
+def matans_script():
+    data = load_jsn('data/data.json')
+    data2 = {k: v for k, v in data.items() if all(v['valid_2'])}
+
+    def del_valid_2(d):
+        del d['valid_2']
+        return d
+
+    data3 = {k: del_valid_2(v) for k, v in data2.items()}
+    data4 = deepcopy(data3)
+    for v in data4.values():
+        v.update(v['nutr_per_ing_1'])
+        del v['nutr_per_ing_1']
+    data_df = pd.DataFrame.from_dict(data4, orient='index')
+    data_df = data_df[
+        ['title_1', 'ingredients_1', 'ingredients_2', 'ingredients_3', 'instructions_1', 'instructions_3', 'energy',
+         'fat', 'protein', 'salt', 'saturates', 'sugars']]
+    pkl.dump(data_df, open('data/data_df.pkl', 'wb'))
+
+
+with open('data/data_df.pkl', 'rb') as f:
+    data = pkl.load(f)
+
+# all_ing = []
+# append_ing = lambda x: all_ing.append(x)
+# flatten = lambda x: [z for y in x for z in y]
+# data['ingredients_2'].apply(append_ing)
+# all_ing = flatten(all_ing)
+# sort_dict = lambda x :{k: v for k, v in sorted(x.items(), key=lambda item: item[1],reverse=True)}
+# hist = sort_dict(dict(Counter(all_ing)))
+
+# nuts = ['energy','fat','protein','salt','saturates','sugars']
+# for nut in nuts:
+#     hist,bins  = np.histogram(data[nut],bins=100)
+#     plt.plot(bins[:-1],hist)
+#     plt.title(nut)
+#     plt.ylabel("num recepies")
+#     plt.xlabel("g per 100g")
+#     plt.show()
+
+with open('data/verbs.txt') as f:
+    verbs = f.read().split('\n')
 print("Debug")
+
+
 
