@@ -10,3 +10,6 @@ My kitchen companion/data/raw/recipes_with_nutritional_info.json
 */.idea/*
 Subprojects/streamlit demo/.idea/*
 Subprojects/streamlit demo/__pycache__/*
+
+# Jupyter
+My kitchen companion/.ipynB_checkpoints/*
