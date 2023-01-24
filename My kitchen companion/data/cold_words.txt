@@ -1,0 +1,7 @@
+ cool
+ freeze
+ refrigerate
+ freezer
+ refrigerator
+ ice
+ frozen
