@@ -8,7 +8,7 @@ Welcome to our _Intelligent Interactive Systems_ final project repo.
 
 Here you can find all the milestones of the project in a one place.
 
-**TL;DR** - The folder `My kitchen companion` contains the
+**TL;DR** - The folder [`My kitchen companion`](https://github.com/MatanSolomon01/096235_Final_project/tree/main/My%20kitchen%20companion) contains the
 prototype and all the relevant things for _Milestone 4_.
 So you can start from the README file there instead of keep
 reading.
