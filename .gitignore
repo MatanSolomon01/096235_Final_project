@@ -4,6 +4,10 @@ My kitchen companion/data/raw/Layers/layer1.json
 My kitchen companion/data/raw/Layers/layer2.json
 My kitchen companion/data/raw/Layers/recipe1M_layers.tar.gz
 My kitchen companion/data/raw/recipes_with_nutritional_info.json
+**/closest_recipes.pkl
+**/comb_recipe_similarities.pkl
+**/G_data.pkl
+**/tf_idf_similarities.pkl
 
 
 # pycharm
