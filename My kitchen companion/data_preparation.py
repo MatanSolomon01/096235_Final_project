@@ -58,11 +58,10 @@ def create_data():
                   'instructions_3': list_of_dicts_to_list(raw_data[id_]['instructions']),
                   } for id_ in ids}
     print("E")
-    dump_jsn(data, 'data/data.json')
+    return data
 
 
-def transfer_to_df():
-    data = load_jsn('data/data.json')
+def transfer_to_df(data):
     data2 = {k: v for k, v in data.items() if all(v['valid_2'])}
 
     def del_valid_2(d):
@@ -78,8 +77,10 @@ def transfer_to_df():
     data_df = data_df[
         ['title_1', 'ingredients_1', 'ingredients_2', 'ingredients_3', 'instructions_1', 'instructions_3', 'energy',
          'fat', 'protein', 'salt', 'saturates', 'sugars']]
-    pkl.dump(data_df, open('data/data_df.pkl', 'wb'))
+    return data_df
 
 
-create_data()
-transfer_to_df()
+data = create_data()
+data_df = transfer_to_df(data)
+print(data_df)
+pkl.dump(data_df, open('data/data_df.pkl', 'wb'))
