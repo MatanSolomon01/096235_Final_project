@@ -35,7 +35,7 @@ with right_panel:
 
     st.write('<style>div.row-widget.stRadio div{flex-direction:row;}</style>', unsafe_allow_html=True)
     st.write('<style>.st-cx{margin-right: auto;}</style>', unsafe_allow_html=True)
-    temperature = st.radio("Choose your temperature!", ['Freeze', 'Cold', 'Natural', 'Hot'], help=helps["temperature"])
+    temperature = st.radio("Choose your temperature!", ['Cold', 'Natural', 'Hot'], help=helps["temperature"])
 
     columns = st.columns(2)
     with columns[0]:
@@ -44,9 +44,9 @@ with right_panel:
         st.write()
         exclude = st.multiselect("Ingredients to exclude", options=("a",), help=helps["exclude"])
 
-    preparation_time = st.slider("Preparation time", min_value=0, max_value=100, value=50, step=5, format="",
+    preparation_time = st.slider("Preparation time", min_value=0, max_value=100, value=50, step=10, format="",
                                  help=helps["preparation_time"])
-    healthiness = st.slider("Healthiness", min_value=0, max_value=100, value=50, step=5, format="",
+    healthiness = st.slider("Healthiness", min_value=0, max_value=100, value=50, step=10, format="",
                             help=helps["healthiness"])
 
 with left_panel:
