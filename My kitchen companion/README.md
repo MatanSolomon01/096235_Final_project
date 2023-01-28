@@ -152,7 +152,7 @@ adjustment we have made, meant to bypass Streamlit's avoidance of nested columns
 
 2. Search for the error raised in the case of nested columns. It should look like the following:
 
-![](data/others/streamlit source code.png)
+![](data/others/streamlit.png)
 
 In our version of streamlit (1.17.0), it starts in line 577, but you may find it by looking for the below row in the
 file:
@@ -161,7 +161,7 @@ file:
 
 3. Replace the 3 `raise StreamlitAPIException` lines with `pass`. After the modification, it should look like this:
 
-![](data/others/streamlit source code 2.png)
+![](data/others/streamlit2.png)
 
 ### 3. Run the app
 
