@@ -109,7 +109,80 @@ Except for the two pipelines, there are a few more files here, which are describ
    of streamlit, GNNs, and tf-idf vectorization.
 3. the `utils.py` file contains constants that are used across the different notebooks, as well as some functionalities
    that are used for the interface.
-4. In the `data/others` folder, there are the two diagrams of the pipeline, and the [_draw.io_](https://app.diagrams.net/)
-   file to produce them.
+4. In the `data/others` folder, there are the two diagrams of the pipeline, and the [_
+   draw.io_](https://app.diagrams.net/) file to produce them, as well as other code snapshots that are described below.
 
 ## Running instructions
+
+Even though it's completely possible given the above instructions, running the entire pipeline is useless. Instead, it
+should be enough to run the streamlit interface to experiment with the prototype. Few requirements are needed for a
+successful load and operation of the interface.
+
+### 1. Files
+
+The interface uses to following files:
+
+1. `data/closest_recipes.pkl`
+2. `data/data_df_filtered.pkl`
+3. `data/initial_features/flavors/first_ingredients.pkl`
+
+To run the interface, make sure the files exist, and in the correct sub-folders.
+
+**NOTE!** Some of the above files were too big to fit into the GitHub repo, and therefore will be missing if the repo is
+being cloned. We highly command to avoid cloning the repo from GitHub, and instead download it from the link to our
+OneDrive folder, provided in the report (and
+also [here](https://technionmail-my.sharepoint.com/:f:/g/personal/matan-so_campus_technion_ac_il/EscqxbhWIh1KoeL4YJMFmssBqCR4APolabp6knpM0YrlSA?e=glxUc8))
+. Access is granted for anyone in the Technion with the link.
+
+### 2. Streamlit modifications
+
+To design our interface to be similar as possible to the prototype presented in _Milestone 2_ (and not only for
+compatibility reasons, but also to meet the design standards) we had to **slightly change the source code of the
+streamlit package**. Without the proper adjustments, the code will probably fail. Here we'll describe the one simple
+adjustment we have made, meant to bypass Streamlit's avoidance of nested columns.
+
+1. Locate the `delta_generator.py` file in streamlit's source code in use. The file is located in streamlit's root
+   directory.
+    1. If you use Conda distribution as we do, you may find it
+       in `...\anaconda3\Lib\site-packages\streamlit\delta_generator.py`. If you use several Conda environments, make
+       sure to change the appropriate one.
+    2. If you run into trouble with finding the file, it may be easier to ignore this step and proceed to run the
+       interface. The interface will load in the browser, but will soon present an error message that includes the pass
+       to the `delta_generator.py` file.
+
+2. Search for the error raised in the case of nested columns. It should look like the following:
+
+![](data/others/streamlit source code.png)
+
+In our version of streamlit (1.17.0), it starts in line 577, but you may find it by looking for the below row in the
+file:
+
+    if block_type == "column" and block_type in parent_block_types:
+
+3. Replace the 3 `raise StreamlitAPIException` lines with `pass`. After the modification, it should look like this:
+
+![](data/others/streamlit source code 2.png)
+
+### 3. Run the app
+
+You're all set. Open your terminal and navigate to the root directory of our project. Make sure the environment in which
+you changed the source code is activated, and all the required files exists where they should be. The following line
+should open the interface in your default browser:
+
+    streamlit run interface.py
+
+Enjoy, and bon appetit :)
+
+### 4. Our note
+
+We have been working EXTREMELY hard on this project, and to make sure everything is working appropriately. If, for some
+reason, you run into problems with running our project, please contact us, and we will be happy to help. It's a complex
+project, but we did everything in our power to make it work :)
+
+Thank you in advance,
+
+Matan Solomon | matan-so@campus.technion.ac.il
+
+Nitay Suissa | nitay.suissa@campus.technion.ac.il
+
+

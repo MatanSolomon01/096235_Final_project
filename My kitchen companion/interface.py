@@ -1,12 +1,7 @@
 import random
-
 import streamlit as st
-
 import utils
 from utils import helps
-import pandas as pd
-import numpy as np
-import time
 
 st.set_page_config(page_title="My kitchen companion", page_icon=":cookie:", layout="wide")
 
