@@ -16,3 +16,10 @@ My kitchen companion/data/raw/recipes_with_nutritional_info.json
 
 # Jupyter
 My kitchen companion/.ipynb_checkpoints/*
+
+# Latex
+*.aux
+*.bbl
+*.blg
+*.log
+*.synctex.gz
