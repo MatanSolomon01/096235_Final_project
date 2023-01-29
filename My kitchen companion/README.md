@@ -97,8 +97,8 @@ The secondary pipeline described in the figure below is a small one.
   cooking verbs that appeared among the recipes.
 - B - The verbs were manually inserted into chatGPT, which was asked to classify them into verbs that indicate cold /
   hot cooking.
-- C - The classified verbs are then saved into two lists in the files `cold_words.txt`, and `hot_words.txt` in the `
-  data/initial_features/temperature folder.
+- C - The classified verbs are then saved into two lists in the files `cold_words.txt`, and `hot_words.txt` in
+  the `data/initial_features/temperature` folder.
 
 ### Others
 
@@ -109,8 +109,7 @@ Except for the two pipelines, there are a few more files here, which are describ
    of streamlit, GNNs, and tf-idf vectorization.
 3. the `utils.py` file contains constants that are used across the different notebooks, as well as some functionalities
    that are used for the interface.
-4. In the `data/others` folder, there are the two diagrams of the pipeline, and the [_
-   draw.io_](https://app.diagrams.net/) file to produce them, as well as other code snapshots that are described below.
+4. In the `data/others` folder, there are the two diagrams of the pipeline, and the [_draw.io_](https://app.diagrams.net/) file to produce them, as well as other code snapshots that are described below.
 
 ## Running instructions
 

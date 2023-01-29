@@ -15,4 +15,4 @@ My kitchen companion/data/raw/recipes_with_nutritional_info.json
 **/__pycache__/*
 
 # Jupyter
-My kitchen companion/.ipynB_checkpoints/*
+My kitchen companion/.ipynb_checkpoints/*
