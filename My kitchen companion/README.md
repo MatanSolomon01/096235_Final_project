@@ -109,7 +109,8 @@ Except for the two pipelines, there are a few more files here, which are describ
    of streamlit, GNNs, and tf-idf vectorization.
 3. the `utils.py` file contains constants that are used across the different notebooks, as well as some functionalities
    that are used for the interface.
-4. In the `data/others` folder, there are the two diagrams of the pipeline, and the [_draw.io_](https://app.diagrams.net/) file to produce them, as well as other code snapshots that are described below.
+4. In the `data/others` folder, there are the two diagrams of the pipeline, and the [_
+   draw.io_](https://app.diagrams.net/) file to produce them, as well as other code snapshots that are described below.
 
 ## Running instructions
 
@@ -146,8 +147,8 @@ adjustment we have made, meant to bypass Streamlit's avoidance of nested columns
        in `...\anaconda3\Lib\site-packages\streamlit\delta_generator.py`. If you use several Conda environments, make
        sure to change the appropriate one.
     2. If you run into trouble with finding the file, it may be easier to ignore this step and proceed to run the
-       interface. The interface will load in the browser, but will soon present an error message that includes the pass
-       to the `delta_generator.py` file.
+       interface. The interface will load in the browser, but will soon present an error message. Looking at the error
+       trace, we can find the path to the `delta_generator.py` file.
 
 2. Search for the error raised in the case of nested columns. It should look like the following:
 
