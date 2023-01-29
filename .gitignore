@@ -23,3 +23,4 @@ My kitchen companion/.ipynb_checkpoints/*
 *.blg
 *.log
 *.synctex.gz
+*.out
